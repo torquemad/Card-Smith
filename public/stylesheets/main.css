@@ -1,0 +1,67 @@
+
+
+/* NAVIGATION*/
+nav {
+  height: 40px;
+  background: #a7e0ee;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  list-style: none; 
+}
+
+.nav li a {
+  text-decoration: none;
+  float: left;
+  display: block;
+  padding: 10px 20px;
+  color: black;
+}
+
+.nav li a:hover {
+  color: white;
+}
+
+.card_stream {
+  width: 80%;
+}
+
+.headerBreak {
+    width: 100%;
+    height: 0;
+    border-bottom: 2px solid #a7e0ee;
+}
+
+/*BODY*/
+
+
+.userCreatedCard img {
+  display: block;
+  max-width:300px;
+  max-height:600px;
+  width: auto;
+  height: auto;
+}
+
+.card_stream {
+  margin: 0 auto;
+}
+
+.userCreatedCard {
+  width: 70%;
+  /*background-color: white;*/
+  margin: 0 auto;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  background: url(/images/background-image-compressed.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+

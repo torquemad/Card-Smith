@@ -1,0 +1,59 @@
+<h3>Edit card</h3>
+
+
+
+
+<form action="/card/<%= @card.id %>" method='post' id='create-card'>
+  <input type="hidden" name="_method" value"put">
+
+  <label>Creature name:</label>
+  <input type="text" name="creaturename" value="<%= @card.name %>">
+  
+  <label for="type">Creature type:</label>
+  <select id="type" name="creatureclass" value" <%= @card.creatureclass %>">
+    <option value="Animal">Animal</option>
+    <option value="Humanoid">Humanoid</option>
+    <option value="Robot">Robot</option>
+    <option value="Mutant">Mutant</option>
+    <option value="Insect">Insect</option>
+  </select>
+    
+
+  <label for="planet">Planet:</label>
+  <select id="planet" name="planet" value="<%= @card.planet %>"
+    <option value="Calypso">Calypso</option>
+    <option value="Cyrene">Cyrene</option>
+    <option value="Arkadia">Arkadia</option>
+    <option value="Crytal Palace">Crytal Palace</option>
+    <option value="Monria">Monria</option>
+  </select>
+  
+  <label for="">Movement:</label>
+  <input type="text" name="movement" value="<%= @card.movement %>">
+
+  <label for="">Artwork URL / upload:</label> 
+  <input type="text" name="artworkurl" value="<%= @card.artworkurl %>">
+  <input type="file" name="artworkurl" size="chars" > 
+
+
+  <label for="">Damage:</label> 
+  <input type="text" name="damage" value="<%= @card.damage %>">
+  
+  <label for="">Health:</label> 
+  <input type="text" name="health" value="<%= @card.health %>">
+
+  <label for="description">Description:</label>  
+  <input class="description" name="descriptionrules" value="<%= @card.descriptionrules %>"></input>
+
+  <label for="description">Story:</label>  
+  <input class="description" name="descriptionflavor" value="<%= @card.descriptionflavor %>"></input>
+
+  <button>Preview card</button>
+
+</form>
+
+<div class="displayCard">
+  
+  <img src="" alt="">
+
+</div>

@@ -1,0 +1,80 @@
+<h1>Sci-fi trading card generator</h1>
+
+<p>Completely impact multifunctional processes and wireless supply chains. Dynamically engage business meta-services for market-driven data.</p>
+
+<button><a href="/card/new">Create card</a></button>
+
+<button>Create game</button>
+
+
+
+
+<div class="card_stream">
+  
+  <!-- Get each card from the database and diplay it -->
+  <% @card.each do |card| %>
+    
+    <div class="userCreatedCard">
+      <div class="cardTemplate">
+  
+        <div class="user-image">
+          <img src="<%= card.artworkurl %>">
+        </div>
+
+        <div class="user-text">
+          <p>Creature name: <%= card.name %></p>
+          <p>Type: <%= card.creatureclass %></p>
+          <p>Found on: <%= card.planet %></p>
+          <p>Movement: <%= card.movement %></p>
+          <p>Damage: <%= card.damage %></p>
+          <p>Health: <%= card.health %></p>
+          <p>Rules: <%= card.descriptionrules %></p>
+          <p>Description: <%= card.descriptionflavor %></p>
+        </div>
+
+      </div>
+
+
+
+      <style>
+      
+      .cardTemplate {
+        background: url(/images/card_front.png) no-repeat top center;
+        background-size: cover;
+        height: 600px;
+        width: 400px;
+        position: relative;
+        margin: 0 auto;
+     }
+
+      .user-image {
+      height: 300px;
+      width: 240px;
+      position: absolute;
+      top:0;
+      left: 0;
+      overflow: hidden;
+      margin: 20px;
+      }
+
+      </style>
+
+      <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
+
+      <form action="/card/<%= card.id %>/delete" method="post">
+        <input type="hidden" name="_method" value="delete">
+
+        <button>Delete</button>
+      </form>
+
+      <!-- END OF userCreatedCard -->
+    </div>
+
+  <% end %>
+
+</div>
+
+
+<script>
+  
+</script>
