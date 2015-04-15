@@ -22,7 +22,7 @@
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="#">My Games</a></li>
-    <li><a href="#">My Cards</a></li>
+    <li><a href="/my_cards">My Cards</a></li>
   </ul>
 
 </nav>
@@ -30,8 +30,26 @@
 
   <!-- USER AUTHENTICATION -->
 
-    <a href="/session/new">Login</a>    
-  
+    <button><a href="/session/new">Login</a></button>
+    <% if logged_in? %>
+
+    <p>Logged in as: <%= current_user.username %></p>
+    
+    <p>
+      <form action="/session" method='post'>
+      <input type="hidden" name="_method" value="delete"> <!-- browser doesnt support delete method so we need to use this 'hidden' ty[e] -->
+          <button>logout</button>
+    </form>
+    </p>
+
+
+    <% else %>
+
+      <a href="/session/new">Login</a>
+
+    <% end %>
+
+
   <%= yield %>
 
 </body>

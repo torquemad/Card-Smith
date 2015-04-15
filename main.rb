@@ -5,27 +5,66 @@ require 'pry'
 require 'bcrypt'
 
 enable :sessions
+
 require_relative 'config'
 require_relative 'card'
+require_relative 'user'
 
 after do
   ActiveRecord::Base.connection.close
 end
 
-#before each request, load everything all categories from DB into instance var
-before do 
-  # @categories = Category.all
+# USER AUTHENTICATION
+get '/session/new' do
+  erb :login
 end
 
+helpers do
+  def logged_in?
+    !!current_user #trick to return boolean  
+  end
 
-# USER AUTHENTICATION
-# get '/session/new' do
-#   erb :login
-# end
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
+end
 
+post '/session' do
+  @user = User.find_by(email: params[:email])
+
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    # correct password
+    redirect to '/'
+  else 
+    # incorrect email or password
+    erb :login
+  end
+end
+
+#destroy the session
+delete '/session' do
+  session[:user_id] = nil
+  redirect to '/'
+end
+
+# =======================
 get '/' do
   @card = Card.all
   erb :index
+end
+
+get '/my_cards' do
+
+  if current_user
+
+  @card = Card.where(:user_id => current_user.id)
+  erb :user_cards
+
+ else
+  erb :login
+
+ end
 end
 
 get '/about' do
@@ -39,6 +78,7 @@ end
 
 # View form to make a card (get request)
 get '/card/new' do
+  # redirect to '/session/new' unless current_user
   erb :new
 end
 
@@ -54,6 +94,7 @@ post '/cards' do
   card.descriptionflavor = params[:descriptionflavor]
   card.damage = params[:damage]
   card.health = params[:health]
+  card.user_id = current_user.id
   card.save
 
   if card.save

@@ -33,32 +33,10 @@
         </div>
 
       </div>
+        
 
-
-
-      <style>
-      
-      .cardTemplate {
-        background: url(/images/card_front.png) no-repeat top center;
-        background-size: cover;
-        height: 600px;
-        width: 400px;
-        position: relative;
-        margin: 0 auto;
-     }
-
-      .user-image {
-      height: 300px;
-      width: 240px;
-      position: absolute;
-      top:0;
-      left: 0;
-      overflow: hidden;
-      margin: 20px;
-      }
-
-      </style>
-
+        <% if current_user.id && card.user_id %>
+          
       <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
 
       <form action="/card/<%= card.id %>/delete" method="post">
@@ -67,6 +45,7 @@
         <button>Delete</button>
       </form>
 
+        <% end %>
       <!-- END OF userCreatedCard -->
     </div>
 

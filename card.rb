@@ -1,6 +1,8 @@
 #create a class to map to database table
 class Card < ActiveRecord::Base
 
+  belongs_to :user
+
   #prevent user from submitted blank posts which creates empty data in table
   # validates :title,  :presence => true
 

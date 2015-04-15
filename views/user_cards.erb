@@ -1,0 +1,23 @@
+<% @card.each do |card| %>
+    
+    <div class="userCreatedCard">
+      <div class="cardTemplate">
+  
+        <div class="user-image">
+          <img src="<%= card.artworkurl %>">
+        </div>
+
+        <div class="user-text">
+          <p>Creature name: <%= card.name %></p>
+          <p>Type: <%= card.creatureclass %></p>
+          <p>Found on: <%= card.planet %></p>
+          <p>Movement: <%= card.movement %></p>
+          <p>Damage: <%= card.damage %></p>
+          <p>Health: <%= card.health %></p>
+          <p>Rules: <%= card.descriptionrules %></p>
+          <p>Description: <%= card.descriptionflavor %></p>
+        </div>
+
+      </div>
+
+      <% end %>

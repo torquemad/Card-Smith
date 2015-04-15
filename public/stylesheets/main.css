@@ -65,3 +65,28 @@ body {
   background-size: cover;
 }
 
+.cardTemplate {
+  background: url(/images/card_front.png) no-repeat top center;
+  background-size: cover;
+  height: 600px;
+  width: 400px;
+  position: relative;
+  margin: 0 a
+}
+
+.user-image {
+  height: 300px;
+  width: 240px;
+  position: absolute;
+  top:0;
+  left: 0;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.description {
+  height: 150px;
+  width: 350px;
+  word-break: break-word;
+  vertical-align: top;
+}
