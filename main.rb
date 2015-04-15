@@ -19,9 +19,9 @@ end
 
 
 # USER AUTHENTICATION
-get '/session/new' do
-  erb :login
-end
+# get '/session/new' do
+#   erb :login
+# end
 
 get '/' do
   @card = Card.all
