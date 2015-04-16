@@ -43,10 +43,10 @@
   <input type="text" name="health" value="<%= @card.health %>">
 
   <label for="description">Description:</label>  
-  <input class="description" name="descriptionrules" value="<%= @card.descriptionrules %>"></input>
+  <textarea class="description" name="descriptionrules"><%= @card.descriptionrules %></textarea>
 
   <label for="description">Story:</label>  
-  <input class="description" name="descriptionflavor" value="<%= @card.descriptionflavor %>"></input>
+  <textarea class="description" name="descriptionflavor"><%= @card.descriptionflavor %>></textarea>
 
   <button>Preview card</button>
 

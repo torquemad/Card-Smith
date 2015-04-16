@@ -4,52 +4,80 @@
   <meta charset="UTF-8">
   <title>Trading card generator</title>
 
-  <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
-    <!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- My css -->
+  <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
+  
+  <script src='/javascripts/jquery.js'></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
-<nav>
-  <ul class="nav">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="#">My Games</a></li>
-    <li><a href="/my_cards">My Cards</a></li>
-  </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
+
+<!-- NAVBAR -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav headerStatus">
+        <li><a href="/">Home</a></li>
+        <li><a href="/my_cards">My Cards</a></li>
+        <li><a href="#">My Games (coming soon)</a></li>
+        <li><a href="/about">About</a></li>
+
+        <li><a href="/session/new" class='login'> Sign In / Register</a></li>
+        <!-- USER AUTHENTICATION -->
+      
+      <% if logged_in? %>
+
+        <script>
+          $('.login').remove();
+        </script>
+        
+        <% if current_user.username != nil %>
+          
+          <li class="navRight">Logged in as: <%= current_user.username %></li>
+        <% else %>
+          <li class="navRight">Logged in as: <%= current_user.email %></li>
+
+        <% end %>
+      
+      
+        <li class="login_status">
+        
+          <form action="/session" method='post'>
+            <input type="hidden" name="_method" value="delete"> <!-- browser doesnt support delete method so we need to use this 'hidden' ty[e] -->
+
+            <button>logout</button>
+          </form>
+        </li>
+
+
+      <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
 
-  <!-- USER AUTHENTICATION -->
 
-    <button><a href="/session/new">Login</a></button>
-    <% if logged_in? %>
+<div class="container">  
+    <%= yield %>
 
-    <p>Logged in as: <%= current_user.username %></p>
-    
-    <p>
-      <form action="/session" method='post'>
-      <input type="hidden" name="_method" value="delete"> <!-- browser doesnt support delete method so we need to use this 'hidden' ty[e] -->
-          <button>logout</button>
-    </form>
-    </p>
-
-
-    <% else %>
-
-      <a href="/session/new">Login</a>
-
-    <% end %>
-
-
-  <%= yield %>
+</div>
 
 </body>

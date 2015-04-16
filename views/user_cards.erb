@@ -7,16 +7,30 @@
           <img src="<%= card.artworkurl %>">
         </div>
 
-        <div class="user-text">
-          <p>Creature name: <%= card.name %></p>
-          <p>Type: <%= card.creatureclass %></p>
-          <p>Found on: <%= card.planet %></p>
-          <p>Movement: <%= card.movement %></p>
-          <p>Damage: <%= card.damage %></p>
-          <p>Health: <%= card.health %></p>
-          <p>Rules: <%= card.descriptionrules %></p>
-          <p>Description: <%= card.descriptionflavor %></p>
-        </div>
+    <div class="user-text">
+      <div class="">Creature name: <%= card.name %></div>
+      <div class="">Type: <%= card.creatureclass %></div>
+      <div class="">Found on: <%= card.planet %></div>
+      <div class="">Movement: <%= card.movement %></div>
+      <div class="">Damage: <%= card.damage %></div>
+      <div class="">Health: <%= card.health %></div>
+      <div class="">Rules: <%= card.descriptionrules %></div>
+      <div class="">Description: <%= card.descriptionflavor %></div>
+    </div>
+
+         
+
+         <% if logged_in? %>
+
+          <% if current_user.id && card.user_id %>
+            <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
+            <form action="/card/<%= card.id %>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button>Delete</button>
+            </form>
+          <%end%>
+        <%end%>
+       
 
       </div>
 

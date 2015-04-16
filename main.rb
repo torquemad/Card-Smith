@@ -29,24 +29,52 @@ helpers do
   end
 end
 
-post '/session' do
-  @user = User.find_by(email: params[:email])
 
-  if @user && @user.authenticate(params[:password])
-    session[:user_id] = @user.id
-    # correct password
-    redirect to '/'
-  else 
-    # incorrect email or password
-    erb :login
+# LOGIN 
+post '/session' do
+
+  @user = User.find_by(email: params[:email]) 
+
+  if params[:login] == 'signup'   
+
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect to '/'
+    else 
+      if @user && !@user.authenticate(params[:password])
+        erb :login
+      else
+        @createUser = User.create(email: params[:email], password: params[:password], username: params[:username])
+
+        @createUser.authenticate(@createUser.password)
+        session[:user_id] = @createUser.id
+        redirect to '/'
+      end
+    end
+
+  elsif params[:login] == 'login'
+    
+    if
+      @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      # correct password
+      redirect to '/'
+    else 
+      # incorrect email or password
+      erb :login
+    end
+
   end
+
 end
 
-#destroy the session
+
+#destroy the session on logout
 delete '/session' do
   session[:user_id] = nil
   redirect to '/'
 end
+
 
 # =======================
 get '/' do
@@ -111,6 +139,7 @@ get '/card/:id/edit' do
   @card = Card.find(params[:id])
 
   erb :edit
+
 end
 
 #Find the existing card db ID and save the changes

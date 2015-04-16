@@ -1,59 +1,35 @@
-<h1>Sci-fi trading card generator</h1>
+<h1>Cardmate: <h3>The Sci-fi trading card generator</h3></h1> 
 
-<p>Completely impact multifunctional processes and wireless supply chains. Dynamically engage business meta-services for market-driven data.</p>
 
 <button><a href="/card/new">Create card</a></button>
-
 <button>Create game</button>
 
+<br/>
 
+<div class="cards">
 
-
-<div class="card_stream">
-  
-  <!-- Get each card from the database and diplay it -->
+  <!-- CREATE A CARD LOOP -->
   <% @card.each do |card| %>
-    
-    <div class="userCreatedCard">
-      <div class="cardTemplate">
-  
-        <div class="user-image">
-          <img src="<%= card.artworkurl %>">
-        </div>
 
-        <div class="user-text">
-          <p>Creature name: <%= card.name %></p>
-          <p>Type: <%= card.creatureclass %></p>
-          <p>Found on: <%= card.planet %></p>
-          <p>Movement: <%= card.movement %></p>
-          <p>Damage: <%= card.damage %></p>
-          <p>Health: <%= card.health %></p>
-          <p>Rules: <%= card.descriptionrules %></p>
-          <p>Description: <%= card.descriptionflavor %></p>
-        </div>
+    <div class="cardTemplate">
 
+      <div class="creature-name"><%= card.name %></div>
+
+      <div class="user-image">
+        <img src="<%= card.artworkurl %>">
       </div>
-        
 
-        <% if current_user.id && card.user_id %>
-          
-      <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
-
-      <form action="/card/<%= card.id %>/delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-
-        <button>Delete</button>
-      </form>
-
-        <% end %>
-      <!-- END OF userCreatedCard -->
+      <div class="user-text">
+        <div class="">Creature name: <%= card.name %></div>
+        <div class="">Type: <%= card.creatureclass %></div>
+        <div class="">Found on: <%= card.planet %></div>
+        <div class="">Movement: <%= card.movement %></div>
+        <div class="">Damage: <%= card.damage %></div>
+        <div class="">Health: <%= card.health %></div>
+      </div>
     </div>
 
   <% end %>
 
 </div>
-
-
-<script>
-  
-</script>
+      
