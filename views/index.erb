@@ -4,6 +4,8 @@
 <button><a href="/card/new">Create card</a></button>
 <button>Create game</button>
 
+
+
 <br/>
 
 <div class="cards">
@@ -11,21 +13,24 @@
   <!-- CREATE A CARD LOOP -->
   <% @card.each do |card| %>
 
-    <div class="cardTemplate">
+  <data></data>
+      <div class="cardTemplate">  
+        <a href="card/<%=card.id%>/view">
 
-      <div class="creature-name"><%= card.name %></div>
+      <div class="creature-name"><%=card.name%></div>
 
       <div class="user-image">
-        <img src="<%= card.artworkurl %>">
+ 
+          <img src="<%= card.artworkurl %>">
+
       </div>
 
       <div class="user-text">
-        <div class="">Creature name: <%= card.name %></div>
-        <div class="">Type: <%= card.creatureclass %></div>
-        <div class="">Found on: <%= card.planet %></div>
-        <div class="">Movement: <%= card.movement %></div>
-        <div class="">Damage: <%= card.damage %></div>
-        <div class="">Health: <%= card.health %></div>
+        <div class="bottom-left-top">Type: <%= card.creatureclass %></div>
+        <div class="bottom-left-top">Found on: <%= card.planet %></div>
+        <div class="bottom-left-bottom">Speed: <%= card.movement %></div>
+        <div class="bottom-right">Dmg: <%= card.damage %></div>
+        <div class="bottom-right">HP: <%= card.health %></div>
       </div>
     </div>
 

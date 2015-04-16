@@ -91,7 +91,6 @@ get '/my_cards' do
 
  else
   erb :login
-
  end
 end
 
@@ -107,6 +106,9 @@ end
 # View form to make a card (get request)
 get '/card/new' do
   # redirect to '/session/new' unless current_user
+
+
+
   erb :new
 end
 
@@ -157,16 +159,22 @@ post '/card/:id' do
   card.health = params[:health]
   card.save
 
+  binding.pry
   redirect to '/'
 
 end
 
 # delete an existing card
-
 delete '/card/:id/delete' do
-  "Hello World"
   card = Card.find(params[:id])
   card.delete
 
-  redirect to '/'
+  redirect to '/my_cards'
+end
+
+# view a specific card
+get '/card/:id/view' do
+  @card = Card.find(params[:id])
+
+  erb :view_card
 end
