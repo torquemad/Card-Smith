@@ -16,6 +16,13 @@ CREATE TABLE cards (
   user_id INTEGER
 );
 
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  email VARCHAR(100),
+  password_digest VARCHAR(400),
+  username VARCHAR(100)
+);
+
 
 INSERT INTO cards (
   name, 
