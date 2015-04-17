@@ -21,7 +21,7 @@ end
 
 helpers do
   def logged_in?
-    !!current_user #trick to return boolean  
+    !!current_user #trick to return boolean
   end
 
   def current_user
@@ -30,17 +30,17 @@ helpers do
 end
 
 
-# LOGIN 
+# LOGIN
 post '/session' do
 
-  @user = User.find_by(email: params[:email]) 
+  @user = User.find_by(email: params[:email])
 
-  if params[:login] == 'signup'   
+  if params[:login] == 'signup'
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect to '/'
-    else 
+    else
       if @user && !@user.authenticate(params[:password])
         erb :login
       else
@@ -53,13 +53,13 @@ post '/session' do
     end
 
   elsif params[:login] == 'login'
-    
+
     if
       @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       # correct password
       redirect to '/'
-    else 
+    else
       # incorrect email or password
       erb :login
     end
@@ -78,7 +78,8 @@ end
 
 # =======================
 get '/' do
-  @card = Card.all
+  reverse = Card.all
+  @card = reverse.reverse
   erb :index
 end
 
@@ -86,12 +87,12 @@ get '/my_cards' do
 
   if current_user
 
-  @card = Card.where(:user_id => current_user.id)
-  erb :user_cards
+    @card = Card.where(:user_id => current_user.id)
+    erb :user_cards
 
- else
-  erb :login
- end
+  else
+    erb :login
+  end
 end
 
 get '/about' do
@@ -99,17 +100,20 @@ get '/about' do
 end
 
 get '/cards' do
-  @card = Card.all
+  @card = Card.all.reverse
   erb :index
 end
 
 # View form to make a card (get request)
 get '/card/new' do
   # redirect to '/session/new' unless current_user
+  if current_user
+    erb :new
+  else
+    erb :login
+  end
 
 
-
-  erb :new
 end
 
 # Save that card to the database
@@ -132,7 +136,7 @@ post '/cards' do
   else
     erb :new
   end
-end 
+end
 
 # edit an existing card
 
@@ -159,7 +163,6 @@ post '/card/:id' do
   card.health = params[:health]
   card.save
 
-  binding.pry
   redirect to '/'
 
 end
@@ -179,6 +182,3 @@ get '/card/:id/view' do
   erb :view_card
 end
 
-get '/test' do
-  erb :text
-end

@@ -1,18 +1,21 @@
-
-<h1 class="heading">Card-Smith: <span id="heading">A Sci-fi themed trading card generator</span></h1> 
-
-<div class="homepage-buttons">
-  <a href="/card/new" class="btn grey">New card</a>
-  <a href="#" class="btn grey">New Game (coming soon)</a>
+<h1 class="heading">Card-Smith: <span id="heading">A Sci-fi themed trading card generator</span></h1>
+<div class="row">
+  <div class="col-md-12">
+    <p class="buttons">
+      <a href="/card/new" class="btn grey create">New card</a>
+      <a href="#" class="btn grey">New Game (coming soon)</a>
+    </p>
+  </div>
 </div>
-
 <br/>
 <div class="cards">
   <!-- CREATE A CARD -->
   <% @card.each do |card| %>
+        <a href="card/<%=card.id%>/view"> 
+
   <div class="cardTemplate">
-    <a href="card/<%=card.id%>/view">
       <div class="creature-name"><%=card.name%></div>
+
       <div class="user-image">
         <img src="<%= card.artworkurl %>">
       </div>
@@ -24,8 +27,6 @@
         <div class="bottom-right">HP: <%= card.health %></div>
       </div>
     </div>
-    <% end %>
-</div>
-
-
-
+</a>
+<% end %>
+  </div>

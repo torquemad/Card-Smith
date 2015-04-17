@@ -1,50 +1,41 @@
-<form action="/cards" method='post' id='create-card'>
-
-  <label>Creature name:</label>
-  <input type="text" name="creaturename">
-  
-  <label for="type">Creature type:</label>
-  <select id="type" name="creatureclass" style="padding:3px;">
-    <option value="Animal">Animal</option>
-    <option value="Humanoid">Humanoid</option>
-    <option value="Robot">Robot</option>
-    <option value="Mutant">Mutant</option>
-    <option value="Insect">Insect</option>
-  </select>
-    
-
-  <label for="planet">Planet:</label>
-  <select id="planet" name="planet" style="padding:3px;">    
-    <option value="Calypso">Calypso</option>
-    <option value="Cyrene">Cyrene</option>
-    <option value="Arkadia">Arkadia</option>
-    <option value="Crytal Palace">Crytal Palace</option>
-    <option value="Monria">Monria</option>
-  </select>
-  
-  <label for="">Movement:</label>
-  <input type="text" name="movement">
-
-  <label for="">Artwork URL / upload:</label> 
-  <input type="text" name="artworkurl">
-
-
-  <label for="">Damage:</label> 
-  <input type="text" name="damage">
-  
-  <label for="">Health:</label> 
-  <input type="text" name="health">
-
-  <label for="descriptionrules">Description:</label>  
-  <textarea class="description" name="descriptionrules"></textarea>
-
-  <label for="descriptionflavor">Story:</label>  
-  <textarea class="description" name="descriptionflavor"></textarea>
-
-  <button>Preview card</button>
-
-</form>
-
-
-<!--  -->
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 new-card">
+    <form action="/cards" method='post' id='create-card'>
+      <label>Creature name:</label>
+      <input type="text" name="creaturename">
       
+      <label for="type">Creature type:</label>
+      <select id="type" name="creatureclass" style="padding:3px;">
+        <option value="Animal">Animal</option>
+        <option value="Humanoid">Humanoid</option>
+        <option value="Robot">Robot</option>
+        <option value="Mutant">Mutant</option>
+        <option value="Insect">Insect</option>
+      </select>
+      
+      <label for="planet">Planet:</label>
+      <select id="planet" name="planet" style="padding:3px;">
+        <option value="Calypso">Calypso</option>
+        <option value="Cyrene">Cyrene</option>
+        <option value="Arkadia">Arkadia</option>
+        <option value="Crytal Palace">Crytal Palace</option>
+        <option value="Monria">Monria</option>
+      </select>
+      
+      <label for="">Movement:</label>
+      <input type="text" name="movement">
+      <label for="">Artwork URL / upload:</label>
+      <input type="text" name="artworkurl">
+      <label for="">Damage:</label>
+      <input type="text" name="damage">
+      
+      <label for="">Health:</label>
+      <input type="text" name="health">
+      <label for="descriptionrules">Description:</label>
+      <textarea class="description" name="descriptionrules"></textarea>
+      <label for="descriptionflavor">Story:</label>
+      <textarea class="description" name="descriptionflavor"></textarea>
+      <button>Preview card</button>
+    </form>
+  </div>
+</div>

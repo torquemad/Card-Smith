@@ -1,37 +1,44 @@
 <% @card.each do |card| %>
-    
-    <div class="userCreatedCard">
-      <div class="cardTemplate">
-  
-        <div class="user-image">
-          <img src="<%= card.artworkurl %>">
-        </div>
 
-    <div class="user-text">
-      <div class="">Creature name: <%= card.name %></div>
-      <div class="">Type: <%= card.creatureclass %></div>
-      <div class="">Found on: <%= card.planet %></div>
-      <div class="">Movement: <%= card.movement %></div>
-      <div class="">Damage: <%= card.damage %></div>
-      <div class="">Health: <%= card.health %></div>
-      <div class="">Rules: <%= card.descriptionrules %></div>
-      <div class="">Description: <%= card.descriptionflavor %></div>
+<div class="userCreatedCard">
+  <div class="cardTemplate">
+    
+
+
+
+
+<div class="cards">
+
+  <div class="cardTemplate">
+      <div class="creature-name"><%=card.name%></div>
+
+      <div class="user-image">
+        <img src="<%= card.artworkurl %>">
+      </div>
+      <div class="user-text">
+        <div class="bottom-left-top">Type: <%= card.creatureclass %></div>
+        <div class="bottom-left-top">Found on: <%= card.planet %></div>
+        <div class="bottom-left-bottom">Speed: <%= card.movement %></div>
+        <div class="bottom-right">Dmg: <%= card.damage %></div>
+        <div class="bottom-right">HP: <%= card.health %></div>
+      </div>
     </div>
 
-         
 
-         <% if logged_in? %>
 
-          <% if current_user.id && card.user_id %>
-            <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
-            <form action="/card/<%= card.id %>/delete" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <button>Delete</button>
-            </form>
-          <%end%>
-        <%end%>
-       
 
-      </div>
 
-      <% end %>
+
+    <% if logged_in? %>
+    <% if current_user.id && card.user_id %>
+    <button><a href="/card/<%= card.id %>/edit">Edit</a></button>
+    <form action="/card/<%= card.id %>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>
+    <%end%>
+    <%end%>
+    
+  </div>
+  <% end %>
+

@@ -1,53 +1,38 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-1 login">
     <form action="/session" method="post">
-  <div class="form-group">
-<h3>Create New Account</h3>
-<p>Sign up to manage your custom Card-Smith cards and personalize your gallery to share with others.</p>
-
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <div class="form-group">
+        <h3>Create New Account</h3>
+        <p>Sign up to manage your custom Card-Smith cards and personalize your gallery to share with others.</p>
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="username">Username\Login:</label>
+        <input type="username" class="form-control" id="username" placeholder="username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        <button type="register" class="btn btn-default" value="signup" name="login">Sign up</button>
+      </form>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="username">Username\Login:</label>
-    <input type="username" class="form-control" id="username" placeholder="username" name="username">
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-
-
-    <button type="register" class="btn btn-default" value="signup" name="login">Sign up</button>
-
-    </form>
-  </div>
-</div>
-
-
-
+  
   <div class="col-md-3 col-md-offset-2 register">
     <form action="/session" method="post">
-  <div class="form-group">
-    <h3>Login</h3>
-    <p>Already have an account? Welcome back!</p>
-
-  <div class="form-group">
-    <label for="username">Username\Login:</label>
-    <input type="username" class="form-control" id="username" placeholder="username" name="username">
-  </div>
-
-      <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-
-    <button type="submit" class="btn btn-default" value="login" name="login">Login</button>
-
-
-    </form>
-  </div>
-
+      <div class="form-group">
+        <h3>Login</h3>
+        <p>Already have an account? Welcome back!</p>
+        <div class="form-group">
+          <label for="username">Username\Login:</label>
+          <input type="username" class="form-control" id="username" placeholder="username" name="username">
+        </div>
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+          <button type="submit" class="btn btn-default" value="login" name="login">Login</button>
+        </form>
+      </div>

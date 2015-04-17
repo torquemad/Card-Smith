@@ -1,25 +1,25 @@
-
-<div class="cardTemplate-large">
-  <div class="creature-name"><%=@card.name%></div>
-  <div class="user-image">
-    <img src="<%= @card.artworkurl %>">
-  </div>
-  <div class="user-text">
-    <div class="bottom-left-top">Type: <%= @card.creatureclass %></div>
-    <div class="bottom-left-top">Found on: <%= @card.planet %></div>
-    <div class="bottom-left-bottom">Speed: <%= @card.movement %></div>
-    <div class="bottom-right">Dmg: <%= @card.damage %></div>
-    <div class="bottom-right">HP: <%= @card.health %></div>
+<div class="row">
+  <div class="col-md-9 col-md-offset-3">
+    <div class="cardTemplate-large">
+      <div class="creature-name"><%=@card.name%></div>
+      <div class="user-image">
+        <img src="<%= @card.artworkurl %>">
+      </div>
+      <div class="user-text">
+        <div class="bottom-left-top">Type: <%= @card.creatureclass %></div>
+        <div class="bottom-left-top">Found on: <%= @card.planet %></div>
+        <div class="bottom-left-bottom">Speed: <%= @card.movement %></div>
+        <div class="bottom-right">Dmg: <%= @card.damage %></div>
+        <div class="bottom-right">HP: <%= @card.health %></div>
+      </div>
+    </div>
+    <div class="cardTemplateBack-large">
+      
+      <div class="user-text">
+        <div class="top-top"><%= @card.descriptionrules %></div>
+        <div class="middle-middle"><%= @card.descriptionflavor %></div>
+      </div>
+    </div>
+    <button><a href="/">Back</button></a>
   </div>
 </div>
-
-
-
-<div class="cardTemplateBack-large">
-  
-  <div class="user-text">
-    <div class="top-top"><%= @card.descriptionrules %></div>
-    <div class="middle-middle"><%= @card.descriptionflavor %></div>
-  </div>
-</div>
-<button><a href="/">Back</button></a>
