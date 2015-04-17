@@ -2,15 +2,15 @@
   <div class="col-md-9 col-md-offset-3">
     <div class="cardTemplate-large">
       <div class="creature-name"><%=@card.name%></div>
-      <div class="user-image">
+      <div class="user-image-view">
         <img src="<%= @card.artworkurl %>">
       </div>
       <div class="user-text">
-        <div class="bottom-left-top">Type: <%= @card.creatureclass %></div>
-        <div class="bottom-left-top">Found on: <%= @card.planet %></div>
-        <div class="bottom-left-bottom">Speed: <%= @card.movement %></div>
-        <div class="bottom-right">Dmg: <%= @card.damage %></div>
-        <div class="bottom-right">HP: <%= @card.health %></div>
+        <div class="bottom-left-top-view">Type: <%= @card.creatureclass %></div>
+        <div class="bottom-left-top-view">Found on: <%= @card.planet %></div>
+        <div class="bottom-left-bottom-view">Speed: <%= @card.movement %></div>
+        <div class="bottom-right-view">Dmg: <%= @card.damage %></div>
+        <div class="bottom-right-view">HP: <%= @card.health %></div>
       </div>
     </div>
     <div class="cardTemplateBack-large">
