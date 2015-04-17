@@ -19,20 +19,25 @@
     </div>
   </div>
   
-  <div class="col-md-3 col-md-offset-2 register">
-    <form action="/session" method="post">
-      <div class="form-group">
-        <h3>Login</h3>
-        <p>Already have an account? Welcome back!</p>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2 register">
+      <form action="/session" method="post">
         <div class="form-group">
-          <label for="username">Username\Login:</label>
-          <input type="username" class="form-control" id="username" placeholder="username" name="username">
+          <h3>Login</h3>
+          <p>Already have an account? Welcome back!</p>
+          <div class="form-group">
+            <label for="username">Username\Login:</label>
+            <input type="username" class="form-control" id="username" placeholder="username" name="username">
+          </div>
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+            <button type="submit" class="btn btn-default" value="login" name="login">Login</button>
+          </form>
         </div>
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-          <button type="submit" class="btn btn-default" value="login" name="login">Login</button>
-        </form>
       </div>
+    </div>
+  </div>
+</div>
