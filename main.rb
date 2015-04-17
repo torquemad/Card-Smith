@@ -178,3 +178,7 @@ get '/card/:id/view' do
 
   erb :view_card
 end
+
+get '/test' do
+  erb :text
+end
