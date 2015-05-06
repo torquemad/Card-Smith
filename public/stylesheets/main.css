@@ -261,6 +261,13 @@ padding-bottom: 3%;
   text-align: center;
 }
 
+#create-card label, button {
+  display: block;
+}
+
+#create-card button {
+  margin: 0 auto;
+}
 
 
 /*VIEW CARD*/
