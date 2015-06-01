@@ -2,4 +2,4 @@
 
 My first CRUD application, build in Sinatra.
 
-card-smith.herokuapp.com
+http://www.card-smith.herokuapp.com
