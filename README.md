@@ -1,4 +1,4 @@
-![div](http://i.imgur.com/TIf8BCl.png)
+![div](http://i.imgur.com/EL5pjAi.png)
 <a name="top"></a>
 # Card-Smith
 My first CRUD application, build in Sinatra.
@@ -9,9 +9,6 @@ My first CRUD application, build in Sinatra.
 - [Change Log](#change-log)
 - [Demo](#demo)
 - [Contribute](#contribute)
-
-http://card-smith.herokuapp.com
-
 
 <a name="about"></a>
 ###About:
